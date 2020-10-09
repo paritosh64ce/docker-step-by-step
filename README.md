@@ -47,7 +47,45 @@
 
 * Once done, check container ID with `docker ps` and then `docker stop <containerID>`, `docker rm <containerID>` to remove the container.
 
+## 4. Hello microservice
+
+### To consume
+```
+1. docker pull paritosh64ce/hello-ms:latest
+2. docker run -it -p 5000:80 --name my-microservice paritosh64ce/hello-microservice
+```
+
+* Navigate to http://localhost:5000/WeatherForecast to verify that we are getting JSON result
+
+* Now keep this image running
+
+### To make changes and build
+```
+* cd hello-microservice
+* docker build -t <your-image-name> .
+```
+
+## 5. Hello Angular
+
+### To consume
+```
+1. docker pull paritosh64ce/hello-angular:latest
+2. docker run -it -p 5000:80 --name my-angular paritosh64ce/hello-angular
+```
+
+* Navigate to http://localhost:5000/ to verify that our Angular application is working
+
+### To make changes and build
+```
+* cd hello-angular
+* docker build -t <your-image-name> .
+// this takes too much time. Not worth the effort tbh
+```
+
+
+
 # TODO:
 
+* Host a simple dotnet REST microservice, which call some free open microservice
 * dotnet core app with sql server in different docker image
 * host two microservices in different images, and establish communication with proper message-bus
